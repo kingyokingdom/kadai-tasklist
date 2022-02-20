@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Lesson15トップページのルーター
+Route::get('/', function () {
+    return view('welcome');
+});
 
 Route::get('/', 'TasksController@index');
 
