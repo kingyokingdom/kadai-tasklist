@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-//共通レイアウト
 <html lang="ja">
     <head>
         <meta charset="utf-8">
