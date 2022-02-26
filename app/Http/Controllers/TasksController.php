@@ -80,11 +80,13 @@ class TasksController extends Controller
         //getでtasks/idにアクセスされた場合の「取得表示処理」
         // idの値でタスクを検索して取得
         $task = Task::findOrFail($id);
-        
+        if (\Auth::id() === $task->user_id) {
         // タスク詳細画面で対象を表示
         return view('tasks.show', [
             'task' => $task,
         ]);
+        }
+        return redirect('/');
     }
 
     /**
@@ -98,10 +100,14 @@ class TasksController extends Controller
         // idの値でタスクを検索して取得
         $task = Task::findOrFail($id);
 
+    if (\Auth::id() === $task->user_id) {
         // タスク編集ビューでそれを表示
         return view('tasks.edit', [
             'task' => $task,
         ]);
+        }
+        
+        return redirect('/');
     }
 
     /**
